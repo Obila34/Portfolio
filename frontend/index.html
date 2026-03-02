@@ -68,6 +68,7 @@
     color: var(--white);
     text-decoration: none;
     transition: opacity .2s;
+    padding-right: 20px;
   }
   .top-nav a:hover { opacity: .6; }
   .top-nav .btn-contact {
@@ -356,17 +357,72 @@
   }
   .contact-strip a:hover { color: #111; }
   .contact-strip svg { width: 13px; height: 13px; fill: currentColor; }
+  /* Hamburger Styles */
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 760px) {
+
+  .menu-toggle {
+    display: flex; /* Show on mobile */
+    z-index: 101;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hide off-screen */
+    height: 100vh;
+    width: 70%;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding-right: 20px;
+  }
+
+  .nav-links.active {
+    right: 0; /* Slide in */
+  }
+
+  /* Animate Hamburger to 'X' */
+  .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
 </style>
 </head>
 <body>
 
 <!-- Top fixed navbar -->
 <nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About me</a>
-  <a href="skills.html">Skills</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="contact.html" class="btn-contact">Contact me</a>
+
+  <div class="menu-toggle" id="mobile-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <div class="nav-links" id="nav-links">
+   <a href="index.html">Home</a>
+   <a href="about.html">About me</a>
+   <a href="skills.html">Skills</a>
+   <a href="portfolio.html">Portfolio</a>
+   <a href="contact.html" class="btn-contact">Contact me</a>
+  </div>
 </nav>
 
 <!-- Hero -->
@@ -451,6 +507,20 @@
   </a>
 </div>
 </footer>
+<script>
+  const menu = document.querySelector('#mobile-menu');
+  const navLinks = document.querySelector('#nav-links');
 
+  menu.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Optional: Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+    menu.classList.remove('active');
+    navLinks.classList.remove('active');
+  }));
+</script>
 </body>
 </html>
