@@ -308,50 +308,45 @@
 <div class="divider-bottom fade-in"></div>
 
 <script>
-  // Show success message on submit (works without Formspree too for demo)
-  const form      = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const statusMsg = document.getElementById('statusMsg');
+  const form = document.getElementById('contactForm');
+  const successMsg = document.getElementById('successMsg');
+  const submitBtn = form.querySelector('.submit-btn');
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const phone   = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
+    // Get values using the 'name' attribute since IDs were missing
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
-    statusMsg.className = 'status-msg';
-    statusMsg.textContent = '';
+    successMsg.style.display = 'none';
 
     try {
+      // Calling your Vercel API
       const res = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message })
+        body: JSON.stringify(data)
       });
 
-      const data = await res.json();
-
       if (res.ok) {
-        statusMsg.textContent = '✓  Message sent — thank you!';
-        statusMsg.className = 'status-msg success';
+        successMsg.textContent = '✓  Message sent — thank you!';
+        successMsg.style.display = 'block';
         form.reset();
       } else {
-        statusMsg.textContent = data.error || 'Something went wrong. Please try again.';
-        statusMsg.className = 'status-msg error';
+        alert('Something went wrong. Please try again.');
       }
     } catch (err) {
-      statusMsg.textContent = 'Network error. Please try again.';
-      statusMsg.className = 'status-msg error';
+      alert('Network error. Please try again.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit';
     }
+  }); // Fixed the missing closing brace here
 
-
+  // Fade-in Animation Logic
   const fadeEls = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -361,8 +356,8 @@
       }
     });
   }, { threshold: 0.1 });
+
   fadeEls.forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
