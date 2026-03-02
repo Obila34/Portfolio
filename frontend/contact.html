@@ -342,17 +342,6 @@
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit';
     }
-  // Fade-in on scroll
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => fadeObserver.observe(el));
 
 
   const fadeEls = document.querySelectorAll('.fade-in');
