@@ -1,8 +1,9 @@
 {
   "name": "sam-obila-portfolio",
   "version": "1.0.0",
-  "description": "Sam Obila Allela — Portfolio",
+  "type": "module",
   "dependencies": {
     "resend": "^3.2.0"
   }
+}ls
 }
