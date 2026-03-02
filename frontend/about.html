@@ -216,6 +216,7 @@
 
   .fade-in { opacity: 0; transition: opacity 0.7s ease; }
 .fade-in.visible { opacity: 1; }
+
 /* Hamburger Styles */
 .menu-toggle {
   display: none; /* Hidden on desktop */
@@ -407,7 +408,7 @@ I share my work publicly on LinkedIn and GitHub not to impress, but to inspire. 
     navLinks.classList.toggle('active');
   });
 
-  // Optional: Close menu when a link is clicked
+
   document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
     menu.classList.remove('active');
     navLinks.classList.remove('active');

@@ -376,7 +376,7 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Get values using the 'name' attribute since IDs were missing
+    // Get values using the 'name' attribute
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
@@ -428,7 +428,6 @@
     navLinks.classList.toggle('active');
   });
 
-  // Optional: Close menu when a link is clicked
   document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
     menu.classList.remove('active');
     navLinks.classList.remove('active');
