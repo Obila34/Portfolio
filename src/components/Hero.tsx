@@ -62,8 +62,8 @@ export default function Hero() {
             <Cpu className="w-4 h-4" />
             View Stack
           </Button>
-          <Button variant="outline" size="lg" className="rounded-full px-8 border-white/10 hover:bg-white/5 transition-all flex items-center gap-2" asChild>
-            <a href="/resume.pdf" download="Allela_Resume.pdf">
+          <Button variant="outline" size="lg" className="rounded-full border-white/10 hover:bg-white/5 transition-all p-0 overflow-hidden">
+            <a href="/resume.pdf" download="Allela_Resume.pdf" className="w-full h-full flex items-center gap-2 px-8">
               <Download className="w-4 h-4" />
               Download Resume
             </a>
