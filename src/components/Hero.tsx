@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Cpu } from 'lucide-react';
+import { ArrowRight, Cpu, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -61,6 +61,12 @@ export default function Hero() {
           <Button variant="outline" size="lg" className="rounded-full px-8 border-white/10 hover:bg-white/5 transition-all flex items-center gap-2">
             <Cpu className="w-4 h-4" />
             View Stack
+          </Button>
+          <Button variant="outline" size="lg" className="rounded-full px-8 border-white/10 hover:bg-white/5 transition-all flex items-center gap-2" asChild>
+            <a href="/resume.pdf" download="Allela_Resume.pdf">
+              <Download className="w-4 h-4" />
+              Download Resume
+            </a>
           </Button>
         </motion.div>
       </motion.div>
