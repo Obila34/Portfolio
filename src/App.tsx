@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Brain from './components/Brain';
 import Projects from './components/Projects';
+import Articles from './components/Articles';
 import Certifications from './components/Certifications';
 import Terminal from './components/Terminal';
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ export default function App() {
         <main>
           <Hero />
           <Brain />
+          <Articles />
           <Projects />
           <Certifications />
           <Terminal />
