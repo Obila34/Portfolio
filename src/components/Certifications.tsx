@@ -56,7 +56,7 @@ export default function Certifications() {
                       <ShieldCheck className="w-4 h-4 text-accent" />
                       <span className="text-[10px] font-mono uppercase tracking-widest text-accent">{cert.issuer}</span>
                     </div>
-                    <h3 className="text-xl font-bold leading-tight mb-2">{cert.title}</h3>
+                    <h3 className="text-xl font-bold leading-tight mb-2 text-[#f0f0f0] group-hover:text-[#58a6ff]" style={{ transition: 'color 0.25s ease' }}>{cert.title}</h3>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground/90 font-mono">{cert.date}</span>
                       <a 
