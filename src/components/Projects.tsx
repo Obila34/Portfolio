@@ -81,7 +81,7 @@ export default function Projects() {
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
                     {project.icon}
                   </div>
-                  <CardTitle className="text-2xl font-bold tracking-tight">{project.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold tracking-tight group-hover:text-[#58a6ff]" style={{ transition: 'color 0.25s ease' }}>{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative z-10 flex-grow">
                   <p className="text-muted-foreground/90 text-sm leading-relaxed">

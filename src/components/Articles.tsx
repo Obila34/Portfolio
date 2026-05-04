@@ -180,7 +180,7 @@ export default function Articles() {
               >
                 <Card className="h-full glass border-white/5 hover:border-accent/50 transition-all duration-500 overflow-hidden flex flex-col group">
                   <CardHeader className="relative z-10">
-                    <CardTitle className="text-xl font-bold line-clamp-2 group-hover:text-accent transition-colors">
+                    <CardTitle className="text-xl font-bold line-clamp-2 group-hover:text-[#58a6ff]" style={{ transition: 'color 0.25s ease' }}>
                       {article.title}
                     </CardTitle>
                   </CardHeader>
