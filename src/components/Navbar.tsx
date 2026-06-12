@@ -2,6 +2,14 @@ import { motion } from 'motion/react';
 import { Terminal, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Navbar() {
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'Neural', href: '#neural' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Certs', href: '#certifications' },
+    { label: 'Deep Dive', href: '#articles' },
+  ];
+
   return (
     <motion.nav 
       initial={{ y: -100, opacity: 0 }}
@@ -18,13 +26,13 @@ export default function Navbar() {
         </div>
         
         <div className="hidden md:flex items-center gap-8">
-          {['Home', 'Neural', 'Projects', 'Certs', 'Deep Dive'].map((item) => (
+          {navItems.map((item) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              key={item.label} 
+              href={item.href}
               className="text-xs font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
